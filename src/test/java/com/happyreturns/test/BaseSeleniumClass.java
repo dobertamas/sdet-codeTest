@@ -1,6 +1,6 @@
 package com.happyreturns.test;
 
-public class BaseClass {
+public class BaseSeleniumClass {
 
 
     /**
@@ -11,8 +11,12 @@ public class BaseClass {
      *  After the results are displayed, assert that www.happyreturns.com is the first result
      *  returned from Google.
      *
-     *  Time: 45 minutes
-     */
+     *  Notes : Feel free to create classes, rename this class, approach this challenge however you'd like.
+     *  Keep it simple or get fancy with it if you have time.
+     *
+     *  Time: 30 minutes
+     *
+     **/
 
 
 }

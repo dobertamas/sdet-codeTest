@@ -1,6 +1,15 @@
 package com.happyreturns.test;
 
-public class BaseSeleniumClass {
+import junit.framework.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import java.util.List;
+
+public class BaseSeleniumClass extends DriverBase {
 
 
     /**
@@ -17,6 +26,8 @@ public class BaseSeleniumClass {
      *  Time: 30 minutes
      *
      **/
+
+
 
 
 }

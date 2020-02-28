@@ -25,6 +25,7 @@ public class BaseJsonClass {
     public String requestBodyTest() {
         JSONObject body = new JSONObject();
         body.put("test", "123");
+
         System.out.println(body.toString());
         return body.toString();
     }

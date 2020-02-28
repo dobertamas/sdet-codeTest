@@ -100,7 +100,7 @@
                         <configuration>
                             <parallel>methods</parallel>
                             <systemPropertyVariables>
-
+                                <browser>chrome</browser>
                             </systemPropertyVariables>
                         </configuration>
                         <executions>

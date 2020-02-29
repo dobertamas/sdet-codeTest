@@ -27,6 +27,11 @@ public class BaseSeleniumClass extends DriverBase {
      *
      **/
 
+    public Boolean navigateToGoogle() throws Exception {
+        WebDriver driver = getDriver();
+        driver.get("https://google.com");
+        return true;
+    }
 
 
 

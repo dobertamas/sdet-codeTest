@@ -46,7 +46,7 @@ public class DriverBase {
         for (DriverFactory driverFactory : webDriverThreadPool) {
             driverFactory.quitDriver();
         }
-        System.out.println("\n\n\n\n========================================================\n\nINFO: Test complete!!========================================================\n\n\n\n");
+        System.out.println("\n\n\n\n========================================================\n\nINFO: Test complete!!\n\n========================================================\n\n\n\n");
     }
 
     @AfterSuite(alwaysRun = true)

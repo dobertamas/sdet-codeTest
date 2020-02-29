@@ -101,6 +101,8 @@
                             <parallel>methods</parallel>
                             <systemPropertyVariables>
                                 <browser>chrome</browser>
+                                <remote>false</remote>
+                                <headless>true</headless>
                             </systemPropertyVariables>
                         </configuration>
                         <executions>

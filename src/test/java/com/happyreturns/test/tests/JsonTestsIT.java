@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 public class JsonTestsIT {
 
 
- //   @Test
+    @Test
     public void assertRequestBody() {
         BaseJsonClass baseJsonClass = new BaseJsonClass();
-        Assert.assertEquals(baseJsonClass.requestBodyTest(), "{\\r\\n\\\"order\\\":{\\r\\n\\\"line_items\\\":[\\r\\n{\\r\\n\\\"variant_id\\\":447654529,\\r\\n\\\"quantity\\\":1\\r\\n}\\r\\n]\\r\\n}\\r\\n}");
+        Assert.assertEquals(baseJsonClass.requestBodyTest(), "{\"order\":{\"line_items\":[{\"variant_id\":447654529,\"quantity\":1}]}}");
     }
 }

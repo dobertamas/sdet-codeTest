@@ -17,14 +17,19 @@ import org.testng.annotations.Test;
  *  Notes : Feel free to create classes, rename this class, approach this challenge however you'd like.
  *  Keep it simple or get fancy with it if you have time.
  *
- *  I've created an example test that navigates to Google for you!
- *
  *  Time: 30 minutes
  *
  **/
 
 
 public class SeleniumTestsIT extends DriverBase {
+
+    /**
+     * Here is an example test method that navigates
+     * to Google.com.
+     *
+     *
+     * **/
 
     @Test
     public void navigateToGoogleTest() throws Exception {

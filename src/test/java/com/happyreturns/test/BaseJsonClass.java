@@ -1,4 +1,5 @@
 package com.happyreturns.test;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import org.testng.Assert;
@@ -24,8 +25,7 @@ public class BaseJsonClass {
 
     public String requestBodyTest() {
         JSONObject body = new JSONObject();
-        body.put("test", "123");
-
+        body.put("Test123", 123);
         System.out.println(body.toString());
         return body.toString();
     }

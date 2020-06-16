@@ -4,7 +4,7 @@ import com.happyreturns.test.BaseJsonClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class JsonTestsIT {
+public class JsonTests {
 
 
     @Test

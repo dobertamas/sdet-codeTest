@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
  **/
 
 
-public class SeleniumTestsIT extends DriverBase {
+public class SeleniumTests extends DriverBase {
 
     /**
      * Here is an example test method that navigates

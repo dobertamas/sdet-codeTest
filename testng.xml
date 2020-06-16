@@ -3,8 +3,8 @@
 <suite name="smoke" thread-count="1" parallel="classes" >
     <test name="dev">
         <classes>
-          <class name="com.happyreturns.test.tests.JsonTestsIT"></class>
-<!--           <class name="com.happyreturns.test.tests.SeleniumTestsIT"></class>-->
+          <class name="com.happyreturns.test.tests.RestAssuredTests"></class>
+<!--           <class name="com.happyreturns.test.tests.SeleniumTests"></class>-->
         </classes>
     </test>
 </suite>

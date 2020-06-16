@@ -1,15 +1,13 @@
 package com.happyreturns.test;
-import org.json.JSONArray;
+
 import org.json.JSONObject;
 
-import org.testng.Assert;
-import org.testng.*;
-import org.testng.annotations.Test;
+
 
 public class BaseJsonClass {
 
     /**
-     Construct a request body in JSON body that contains the following. Use SysOut to prove your answer.
+     Construct a request body in JSON body that contains the following.
 
      {
         "order": {
@@ -21,6 +19,9 @@ public class BaseJsonClass {
         ]
        }
      }
+
+     In order to run the tests, type the following in the Terminal:
+     mvn clean verify -Dtest=JsonTestsIT
      **/
 
     public String requestBodyTest() {

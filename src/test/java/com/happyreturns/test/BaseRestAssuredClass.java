@@ -1,7 +1,7 @@
 package com.happyreturns.test;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import static io.restassured.RestAssured.*;
 
@@ -25,7 +25,7 @@ public class BaseRestAssuredClass {
      */
 
 
-    public ArrayList<String> getVariants() {
+    public String getVariants() {
         return null;
     }
 

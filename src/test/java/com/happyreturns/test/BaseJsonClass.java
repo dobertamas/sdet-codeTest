@@ -7,8 +7,6 @@ import org.json.JSONObject;
 public class BaseJsonClass {
 
     /**
-
-
      In order to run the tests, type the following in the Terminal:
      mvn clean verify -Dtest=JsonTestsIT
      **/

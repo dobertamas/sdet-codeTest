@@ -7,11 +7,6 @@ import org.testng.annotations.Test;
 
 public class RestAssuredTests {
 
-    /**
-     *
-     *
-     *
-     */
 
     @Test
     public void postTest() {

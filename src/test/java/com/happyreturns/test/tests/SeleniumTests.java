@@ -2,9 +2,13 @@ package com.happyreturns.test.tests;
 
 import com.happyreturns.test.BaseSeleniumClass;
 import com.happyreturns.test.DriverBase;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 /**
  *  CHALLENGE :
@@ -33,9 +37,23 @@ public class SeleniumTests extends DriverBase {
      *
      * **/
 
+    static final String inputString = "Happy Returns";
+    static final String expectedAttribute = "https://www.happyreturns.com/";
+
+
     @Test
     public void navigateToGoogleTest() throws Exception {
         BaseSeleniumClass baseSeleniumClass = new BaseSeleniumClass();
         Assert.assertTrue(baseSeleniumClass.navigateToGoogle());
+        final RemoteWebDriver remoteWebDriver = getDriver();
+        WebElement inputField = remoteWebDriver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input"));
+        //WebElement inputField = remoteWebDriver.findElement(By.xpath("//*/input[@name='q']"));
+        inputField.sendKeys(inputString);
+        WebElement searchButton = remoteWebDriver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[3]/center/input[1]"));
+        searchButton.click();
+        List<WebElement> results = remoteWebDriver.findElements(By.xpath("//*/div[@class='rc']/div[@class='r']/a"));
+        final String href = results.get(1).getAttribute("href");
+        Assert.assertEquals(href,expectedAttribute);
+
     }
 }

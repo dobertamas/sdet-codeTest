@@ -5,6 +5,8 @@ import com.happyreturns.test.DriverBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -46,13 +48,22 @@ public class SeleniumTests extends DriverBase {
         BaseSeleniumClass baseSeleniumClass = new BaseSeleniumClass();
         Assert.assertTrue(baseSeleniumClass.navigateToGoogle());
         final RemoteWebDriver remoteWebDriver = getDriver();
-        WebElement inputField = remoteWebDriver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input"));
-        //WebElement inputField = remoteWebDriver.findElement(By.xpath("//*/input[@name='q']"));
+        // WebElement inputField = remoteWebDriver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input"));
+        WebElement inputField = remoteWebDriver.findElement(By.xpath("//*/input[@name='q']"));
         inputField.sendKeys(inputString);
-        WebElement searchButton = remoteWebDriver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[3]/center/input[1]"));
+        // WebElement searchButton = remoteWebDriver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[3]/center/input[1]"));
+        WebElement searchButton = remoteWebDriver.findElement(By.xpath("//*/input[@value='Google Search']"));
+        WebDriverWait wait = new WebDriverWait(remoteWebDriver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(searchButton));
         searchButton.click();
         List<WebElement> results = remoteWebDriver.findElements(By.xpath("//*/div[@class='rc']/div[@class='r']/a"));
-        final String href = results.get(1).getAttribute("href");
+
+        // For debugging
+        for (WebElement item:results){
+            System.out.println(item.getAttribute("href"));
+        }
+        
+        final String href = results.get(0).getAttribute("href");
         Assert.assertEquals(href,expectedAttribute);
 
     }

@@ -32,14 +32,15 @@ public class RestAssuredTests {
 
         Response response = getVariants();
         Map<Object, Object> objectMap = response.jsonPath().getMap("");
-        System.out.println(objectMap);
+        // For debugging only
+        // System.out.println(objectMap);
         String jsonToPost = convertMapToJson(objectMap);
-        final String s = postVariants(jsonToPost);
+        final String postResponse = postVariants(jsonToPost);
 
         String expectedResponse = "{\n" +
                 "    \"status\": \"Awesome!\"\n" +
                 "}";
-        Assert.assertEquals(expectedResponse, s);
+        Assert.assertEquals(expectedResponse, postResponse);
 
     }
 

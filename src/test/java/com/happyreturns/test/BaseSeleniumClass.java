@@ -1,8 +1,6 @@
 package com.happyreturns.test;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class BaseSeleniumClass extends DriverBase {
 
@@ -34,15 +32,4 @@ public class BaseSeleniumClass extends DriverBase {
         return true;
     }
 
-    public Boolean findLanguageSelectionSelectSpanish() throws Exception{
-        WebDriver driver = getDriver();
-        final WebElement element = driver.findElement(By.id("icp-nav-flyout"));
-        element.click();
-        return true;
-
-    }
-
-    public boolean languageSelectionCLickOnCancel() {
-            return false;
-    }
 }

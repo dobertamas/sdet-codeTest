@@ -43,14 +43,6 @@ public class SeleniumTests extends DriverBase {
     static final String expectedAttribute = "https://www.happyreturns.com/";
 
     @Test
-    public void navigateToAmazonTest() throws Exception {
-        BaseSeleniumClass baseSeleniumClass = new BaseSeleniumClass();
-        Assert.assertTrue(baseSeleniumClass.navigateToAmazon());
-        Assert.assertTrue(baseSeleniumClass.findLanguageSelectionSelectSpanish());
-        Assert.assertTrue(baseSeleniumClass.languageSelectionCLickOnCancel());
-    }
-
-    @Test
     public void navigateToGoogleTest() throws Exception {
         BaseSeleniumClass baseSeleniumClass = new BaseSeleniumClass();
         Assert.assertTrue(baseSeleniumClass.navigateToGoogle());

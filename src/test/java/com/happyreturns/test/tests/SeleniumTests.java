@@ -42,6 +42,13 @@ public class SeleniumTests extends DriverBase {
     static final String inputString = "Happy Returns";
     static final String expectedAttribute = "https://www.happyreturns.com/";
 
+    @Test
+    public void navigateToAmazonTest() throws Exception {
+        BaseSeleniumClass baseSeleniumClass = new BaseSeleniumClass();
+        Assert.assertTrue(baseSeleniumClass.navigateToAmazon());
+        Assert.assertTrue(baseSeleniumClass.findLanguageSelectionSelectSpanish());
+        Assert.assertTrue(baseSeleniumClass.languageSelectionCLickOnCancel());
+    }
 
     @Test
     public void navigateToGoogleTest() throws Exception {
@@ -62,8 +69,9 @@ public class SeleniumTests extends DriverBase {
         for (WebElement item:results){
             System.out.println(item.getAttribute("href"));
         }
-        
+
         final String href = results.get(0).getAttribute("href");
+        System.out.println(href);
         Assert.assertEquals(href,expectedAttribute);
 
     }

@@ -9,22 +9,23 @@ public class AmazonHomePage extends DriverBase {
 
     protected WebDriver driver;
 
-    public Boolean navigateToAmazon() throws Exception {
-        driver = getDriver();
-        driver.get("https://www.amazon.com/");
-        return true;
+    private final By languageSelectionRadioButton = By.id("icp-nav-flyout");
+    private final By languageSelectionCancelButton = By.id("icp-btn-close-announce");
+
+    public AmazonHomePage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public Boolean findLanguageSelectionSelectSpanish() throws Exception {
-        WebDriver driver = getDriver();
-        final WebElement element = driver.findElement(By.id("icp-nav-flyout"));
+    public boolean findLanguageSelectionSelectSpanish() {
+        final WebElement element = driver.findElement(languageSelectionRadioButton);
         element.click();
         return true;
-
     }
 
     public boolean languageSelectionCLickOnCancel() {
-        return false;
+        final WebElement element = driver.findElement(languageSelectionCancelButton);
+        element.click();
+        return true;
     }
 
 }

@@ -8,14 +8,15 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AmazonHomePage {
+public class AmazonBasePage {
 
     protected WebDriver driver;
 
     private final By languageSelectionRadioButton = By.id("icp-nav-flyout");
     private final By languageSelectionCancelButton = By.id("icp-btn-close-announce");
+    private final By visitShopBargainFindsLink = By.linkText("Shop Bargain Finds");
 
-    public AmazonHomePage(WebDriver driver) {
+    public AmazonBasePage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -31,12 +32,23 @@ public class AmazonHomePage {
         return true;
     }
 
+    public ShopBargainFindsLinkPage visitShopBargainFinds() {
+        click(visitShopBargainFindsLink);
+        return new ShopBargainFindsLinkPage(driver);
+    }
 
     /**
      * Open page with given URL
      */
     protected void openUrl(String url) {
         driver.get(url);
+    }
+
+    /**
+     * Return the title of the given page
+     */
+    public String getPageTitle(){
+        return driver.getTitle();
     }
 
     /**
@@ -87,6 +99,7 @@ public class AmazonHomePage {
             attempts++;
         }
     }
+
 
 
 }

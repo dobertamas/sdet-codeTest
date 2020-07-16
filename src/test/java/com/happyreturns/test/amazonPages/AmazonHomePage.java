@@ -1,11 +1,14 @@
 package com.happyreturns.test.amazonPages;
 
-import com.happyreturns.test.DriverBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AmazonHomePage extends DriverBase {
+public class AmazonHomePage {
 
     protected WebDriver driver;
 
@@ -17,15 +20,73 @@ public class AmazonHomePage extends DriverBase {
     }
 
     public boolean findLanguageSelectionSelectSpanish() {
-        final WebElement element = driver.findElement(languageSelectionRadioButton);
-        element.click();
+        // Using click method which is using WebDriverWait inside
+        click(languageSelectionRadioButton);
         return true;
     }
 
     public boolean languageSelectionCLickOnCancel() {
-        final WebElement element = driver.findElement(languageSelectionCancelButton);
-        element.click();
+        // Using click method which is using WebDriverWait inside
+        click(languageSelectionCancelButton);
         return true;
     }
+
+
+    /**
+     * Open page with given URL
+     */
+    protected void openUrl(String url) {
+        driver.get(url);
+    }
+
+    /**
+     * Find element using given locator
+     */
+    protected WebElement find(By locator) {
+        return driver.findElement(locator);
+    }
+
+    /**
+     * Type given text into element with given locator
+     */
+    protected void type(String text, By locator) {
+        waitForVisibilityOf(locator, 5);
+        find(locator).sendKeys(text);
+    }
+
+    /**
+     * Click on element with given locator when its visible
+     */
+    protected void click(By locator) {
+        waitForVisibilityOf(locator, 5);
+        find(locator).click();
+    }
+
+    /**
+     * Wait for specific ExpectedCondition for the given amount of time in seconds
+     */
+    private void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
+        timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
+        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+        wait.until(condition);
+    }
+
+    /**
+     * Wait for given number of seconds for element with given locator to be visible on the page
+     */
+    protected void waitForVisibilityOf(By locator, Integer... timeOutInSeconds) {
+        int attempts = 0;
+        while (attempts < 2) {
+            try {
+                waitFor(ExpectedConditions.visibilityOfElementLocated(locator),
+                        (timeOutInSeconds.length > 0 ? timeOutInSeconds[0] : null));
+                break;
+            } catch (StaleElementReferenceException e) {
+                System.out.println(e.toString());
+            }
+            attempts++;
+        }
+    }
+
 
 }

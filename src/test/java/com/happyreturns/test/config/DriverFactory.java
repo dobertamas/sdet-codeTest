@@ -17,7 +17,7 @@ import static org.openqa.selenium.remote.CapabilityType.PROXY;
 public class DriverFactory {
 
     private RemoteWebDriver driver;
-    private DriverType selectedDriverType;
+    private final DriverType selectedDriverType;
 
     private final String operatingSystem = System.getProperty("os.name").toUpperCase();
     private final String systemArchitecture = System.getProperty("os.arch");

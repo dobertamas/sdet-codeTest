@@ -22,6 +22,7 @@ public class ChangeLanguageOnHomePageTests extends AmazonBaseTest {
     @Test
     public void TestVisitShopBargainFinds() {
         String expectedTitle = "Amazon.com: Bargain Finds";
+        String expectedTitleBasePage = "Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more";
         AmazonBasePage amazonBasePage = new AmazonBasePage(driver);
         final ShopBargainFindsLinkPage shopBargainFindsLinkPage = amazonBasePage.visitShopBargainFinds();
         final String pageTitle = shopBargainFindsLinkPage.getPageTitle(expectedTitle);
@@ -33,5 +34,9 @@ public class ChangeLanguageOnHomePageTests extends AmazonBaseTest {
         System.out.println("refreshed");
         final String anItemWithFifteenBucksPriceAfterRefresh = shopBargainFindsLinkPage.findAnItemWithFifteenBucksPrice();
         System.out.println(anItemWithFifteenBucksPriceAfterRefresh);
+        shopBargainFindsLinkPage.goBack();
+        final String pageTitleBasePage = amazonBasePage.getPageTitle(expectedTitleBasePage);
+        System.out.println(pageTitleBasePage);
+        assertThat(pageTitleBasePage, containsString(expectedTitleBasePage));
     }
 }

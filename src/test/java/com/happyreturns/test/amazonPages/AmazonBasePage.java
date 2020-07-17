@@ -63,6 +63,14 @@ public class AmazonBasePage {
     }
 
     /**
+     * Click on the Back button of the web browser
+     */
+    public boolean goBack() {
+        driver.navigate().back();
+        return true;
+    }
+
+    /**
      * Find element using given locator
      */
     protected WebElement find(By locator) {

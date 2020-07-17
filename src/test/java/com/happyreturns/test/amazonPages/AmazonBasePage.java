@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class AmazonBasePage {
 
     protected WebDriver driver;
@@ -47,8 +49,17 @@ public class AmazonBasePage {
     /**
      * Return the title of the given page
      */
-    public String getPageTitle(){
+    public String getPageTitle(String expectedTitle) {
+        new WebDriverWait(driver, 10).until(ExpectedConditions.titleContains(expectedTitle));
         return driver.getTitle();
+    }
+
+    /**
+     * Refresh the page to reload content
+     */
+    public boolean refreshPage() {
+        driver.navigate().refresh();
+        return true;
     }
 
     /**
@@ -56,6 +67,13 @@ public class AmazonBasePage {
      */
     protected WebElement find(By locator) {
         return driver.findElement(locator);
+    }
+
+    /**
+     * Find list of elements using a locator
+     */
+    protected List<WebElement> findList(By locator) {
+        return driver.findElements(locator);
     }
 
     /**
@@ -99,7 +117,6 @@ public class AmazonBasePage {
             attempts++;
         }
     }
-
 
 
 }
